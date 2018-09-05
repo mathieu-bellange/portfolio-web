@@ -1,0 +1,8 @@
+{
+  "parser": "sugarss",
+  "plugins": {
+    "precss": {},
+    "postcss-cssnext": {},
+    "cssnano": {}
+  }
+}
