@@ -1,27 +1,59 @@
 .nav-container
   background-color: rgba(0 0 0 / 0.8)
-  flex-grow: 1
-  padding: 2em
+  flex-grow: 2
+  padding: 4em 2em
   .profile-overview
     display: flex
+    align-items: flex-end
+    color: #fff
+    flex-direction: column
+    margin-bottom: 2em
+    h1
+      font-size: 4em
+    h3
+      font-size: 2em
+  nav
+    display: flex
     justify-content: flex-end
-    nav
-      a
-        cursor: pointer
-        text-decoration: none
-        color: #fff
-        font-size: 1em
-        display: block
-        span
-          margin-left: 1em
+    a
+      cursor: pointer
+      text-decoration: none
+      color: #fff
+      font-size: 1em
+      display: block
+      span:not(.nav-label)
+        margin-left: 1em
+
+@media (max-width: 1366px)
+  .nav-container
+    flex-grow: 1
+    padding: 3em 2em
+
+@media (max-width: 1024px)
+  .nav-container
+    padding: 2em
+    .profile-overview
+      h1
+        font-size: 3em
+      h3
+        font-size: 1.5em
 
 @media (max-width: 880px)
   .nav-container
+    padding: 0
     .profile-overview
+      align-items: center
+      margin-bottom: 0.5em
+      h1
+        font-size: 3em
+      h3
+        font-size: 2em
+    nav
       justify-content: center
-      nav
-        a
-          .nav-label
-            display: none
-          span
-            margin-left: 0
+      margin: 0.25em 0
+      a
+        .nav-label
+          display: none
+        span:not(.nav-label)
+          margin-left: 0
+          font-size: 1.5em
