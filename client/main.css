@@ -9,3 +9,16 @@
     section
       height: 500px
       margin-bottom: 3em
+
+@media (max-width: 1366px)
+  .main-container
+    padding: 2em 8em
+
+@media (max-width: 1024px)
+  .main-container
+    padding: 2em 4em
+
+@media (max-width: 880px)
+  .main-container
+    flex-grow: 1
+    padding: 2em

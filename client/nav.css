@@ -14,3 +14,14 @@
         display: block
         span
           margin-left: 1em
+
+@media (max-width: 880px)
+  .nav-container
+    .profile-overview
+      justify-content: center
+      nav
+        a
+          .nav-label
+            display: none
+          span
+            margin-left: 0

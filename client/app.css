@@ -13,3 +13,7 @@ body
   display: flex
   flex-direction: row
   height: 100vh
+
+@media (max-width: 880px)
+  body
+    flex-direction: column
