@@ -1,5 +1,7 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './app.css';
+import './nav.css';
+import './main.css';
 
 const scroll = (eventTarget) => {
   if (window.location.pathname.replace(/^\//,'') == eventTarget.pathname.replace(/^\//,'') && window.location.hostname == eventTarget.hostname) {

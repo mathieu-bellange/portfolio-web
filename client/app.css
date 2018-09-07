@@ -13,32 +13,3 @@ body
   display: flex
   flex-direction: row
   height: 100vh
-
-.left-panel
-  background-color: rgba(0 0 0 / 0.8)
-  flex-grow: 1
-  padding: 2em
-  .profile-overview
-    display: flex
-    justify-content: flex-end
-    nav
-      a
-        cursor: pointer
-        text-decoration: none
-        color: #fff
-        font-size: 1em
-        display: block
-        span
-          margin-left: 1em
-
-.container
-  flex-grow: 2
-  overflow-y: scroll
-  padding: 2em 15em
-  main
-    display: flex
-    justify-content: flex-start
-    flex-direction: column
-    section
-      height: 500px
-      margin-bottom: 3em
