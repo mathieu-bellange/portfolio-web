@@ -9,7 +9,7 @@ const scroll = (eventTarget) => {
       if (elementTarget) {
         event.preventDefault();
         window.location.hash = eventTarget.hash;
-        document.querySelector('.container').scroll({
+        document.querySelector('.main-container').scroll({
           top: elementTarget.offsetTop,
           left: 0,
           behavior: 'smooth'
