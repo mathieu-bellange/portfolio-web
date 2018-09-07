@@ -24,3 +24,10 @@ document.querySelector('a[href*="#"]:not([href="#"])').addEventListener('click',
 });
 
 document.addEventListener('DOMContentLoaded', () => scroll(document.querySelector(`a[href="${window.location.hash}"]`)));
+document.querySelector('.main-container').addEventListener('scroll', (e) => {
+  if (document.querySelector('body').clientWidth <= 880 && e.target.scrollTop > 0) {
+    document.querySelector('.profile-overview').className = 'profile-overview hidden';
+  } else {
+    document.querySelector('.profile-overview').className = 'profile-overview';
+  }
+});

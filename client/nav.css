@@ -8,6 +8,12 @@
     color: #fff
     flex-direction: column
     margin-bottom: 2em
+    max-height: 150px
+    transition: max-height 0.5s linear
+    overflow: hidden
+    &.hidden
+      transition: max-height 0.75s linear
+      max-height: 0
     h1
       font-size: 4em
     h3
