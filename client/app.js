@@ -18,9 +18,10 @@ const scroll = (eventTarget) => {
       }
     }
 };
-
-document.querySelector('a[href*="#"]:not([href="#"])').addEventListener('click', (event) => {
-  scroll(event.currentTarget);
+document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((element) => {
+  element.addEventListener('click', (event) => {
+    scroll(event.currentTarget);
+  });
 });
 
 document.addEventListener('DOMContentLoaded', () => scroll(document.querySelector(`a[href="${window.location.hash}"]`)));

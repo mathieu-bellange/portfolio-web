@@ -7,7 +7,7 @@
     align-items: flex-end
     color: #fff
     flex-direction: column
-    margin-bottom: 2em
+    margin-bottom: 4em
     max-height: 150px
     transition: max-height 0.5s linear
     overflow: hidden
@@ -20,13 +20,15 @@
       font-size: 2em
   nav
     display: flex
-    justify-content: flex-end
+    align-items: flex-end
+    flex-direction: column
     a
       cursor: pointer
       text-decoration: none
       color: #fff
       font-size: 1em
       display: block
+      margin-bottom: 2em
       span:not(.nav-label)
         margin-left: 1em
 
