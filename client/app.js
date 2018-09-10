@@ -3,7 +3,7 @@ import './app.css';
 import './nav.css';
 import './main.css';
 
-const scroll = (eventTarget, event) => {
+const onAnchorClicked = (eventTarget, event) => {
   if (window.location.pathname.replace(/^\//,'') == eventTarget.pathname.replace(/^\//,'') && window.location.hostname == eventTarget.hostname) {
       const elementTarget = document.querySelector(eventTarget.hash);
       if (elementTarget) {
@@ -14,18 +14,22 @@ const scroll = (eventTarget, event) => {
           top: currentYOffset,
           left: 0
         });
-        document.querySelector('.main-container').scroll({
-          top: elementTarget.offsetTop,
-          left: 0,
-          behavior: 'smooth'
-        });
         elementTarget.focus({ preventScroll: true });
+        smoothScrolling();
       }
     }
 };
+const smoothScrolling = () => {
+  const elementTarget = document.querySelector(window.location.hash)
+  document.querySelector('.main-container').scroll({
+    top: elementTarget.offsetTop,
+    left: 0,
+    behavior: 'smooth'
+  });
+}
 document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((element) => {
   element.addEventListener('click', (event) => {
-    scroll(event.currentTarget, event);
+    onAnchorClicked(event.currentTarget, event);
   });
 });
 
@@ -37,4 +41,4 @@ document.querySelector('.main-container').addEventListener('scroll', (e) => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => scroll(document.querySelector(`a[href="${window.location.hash}"]`)));
+document.addEventListener('DOMContentLoaded', () => smoothScrolling());
