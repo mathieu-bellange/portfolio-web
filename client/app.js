@@ -20,9 +20,9 @@ const onAnchorClicked = (eventTarget, event) => {
     }
 };
 const smoothScrolling = () => {
-  const elementTarget = document.querySelector(window.location.hash)
+  const elementTarget = window.location.hash ? document.querySelector(window.location.hash) : null;
   document.querySelector('.main-container').scroll({
-    top: elementTarget.offsetTop,
+    top: elementTarget ? elementTarget.offsetTop : 0,
     left: 0,
     behavior: 'smooth'
   });
@@ -41,4 +41,5 @@ document.querySelector('.main-container').addEventListener('scroll', (e) => {
   }
 });
 
+window.onpopstate = () => smoothScrolling();
 document.addEventListener('DOMContentLoaded', () => smoothScrolling());
