@@ -3,12 +3,17 @@ import './app.css';
 import './nav.css';
 import './main.css';
 
-const scroll = (eventTarget) => {
+const scroll = (eventTarget, event) => {
   if (window.location.pathname.replace(/^\//,'') == eventTarget.pathname.replace(/^\//,'') && window.location.hostname == eventTarget.hostname) {
       const elementTarget = document.querySelector(eventTarget.hash);
       if (elementTarget) {
-        event.preventDefault();
+        if (event) event.preventDefault();
+        const currentYOffset = document.querySelector('.main-container').scrollTop;
         window.location.hash = eventTarget.hash;
+        document.querySelector('.main-container').scroll({
+          top: currentYOffset,
+          left: 0
+        });
         document.querySelector('.main-container').scroll({
           top: elementTarget.offsetTop,
           left: 0,
@@ -20,11 +25,10 @@ const scroll = (eventTarget) => {
 };
 document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((element) => {
   element.addEventListener('click', (event) => {
-    scroll(event.currentTarget);
+    scroll(event.currentTarget, event);
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => scroll(document.querySelector(`a[href="${window.location.hash}"]`)));
 document.querySelector('.main-container').addEventListener('scroll', (e) => {
   if (document.querySelector('body').clientWidth <= 880 && e.target.scrollTop > 0) {
     document.querySelector('.profile-overview').className = 'profile-overview hidden';
@@ -32,3 +36,5 @@ document.querySelector('.main-container').addEventListener('scroll', (e) => {
     document.querySelector('.profile-overview').className = 'profile-overview';
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => scroll(document.querySelector(`a[href="${window.location.hash}"]`)));
