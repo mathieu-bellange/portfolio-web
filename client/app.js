@@ -3,18 +3,19 @@ import './app.css';
 import './nav.css';
 import './main.css';
 
-const onAnchorClicked = (eventTarget, event) => {
+const onAnchorClicked = (event) => {
+  const eventTarget = event.currentTarget;
   if (window.location.pathname.replace(/^\//,'') == eventTarget.pathname.replace(/^\//,'') && window.location.hostname == eventTarget.hostname) {
       const elementTarget = document.querySelector(eventTarget.hash);
       if (elementTarget) {
-        if (event) event.preventDefault();
+        event.preventDefault();
         const currentYOffset = document.querySelector('.main-container').scrollTop;
         window.location.hash = eventTarget.hash;
+        elementTarget.focus({ preventScroll: true });
         document.querySelector('.main-container').scroll({
           top: currentYOffset,
           left: 0
         });
-        elementTarget.focus({ preventScroll: true });
         smoothScrolling();
       }
     }
