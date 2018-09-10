@@ -29,7 +29,7 @@ const smoothScrolling = () => {
 }
 document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((element) => {
   element.addEventListener('click', (event) => {
-    onAnchorClicked(event.currentTarget, event);
+    onAnchorClicked(event);
   });
 });
 
