@@ -1,4 +1,7 @@
+import { fromEvent } from 'rxjs';
+import { filter } from 'rxjs/operators';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import './app.css';
 import './nav.css';
 import './main.css';
@@ -34,13 +37,11 @@ document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((element) => {
   });
 });
 
-document.querySelector('.main-container').addEventListener('scroll', (e) => {
-  if (document.querySelector('body').clientWidth <= 880 && e.target.scrollTop > 0) {
-    document.querySelector('.profile-overview').className = 'profile-overview hidden';
-  } else {
-    document.querySelector('.profile-overview').className = 'profile-overview';
-  }
-});
+fromEvent(document.querySelector('.main-container'), 'scroll')
+  .pipe(filter(() => document.querySelector('body').clientWidth <= 880))
+  .subscribe((e) => {
+    document.querySelector('.profile-overview').className = `profile-overview ${e.target.scrollTop > 0 ? 'hidden' : ''}`;
+  });
 
 window.onpopstate = () => smoothScrolling();
 document.addEventListener('DOMContentLoaded', () => smoothScrolling());
