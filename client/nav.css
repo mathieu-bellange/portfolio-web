@@ -58,8 +58,10 @@
         font-size: 2em
     nav
       justify-content: center
+      flex-direction: row
       margin: 0.25em 0
       a
+        margin: 0 1.5em
         .nav-label
           display: none
         span:not(.nav-label)
