@@ -1,12 +1,12 @@
 import { fromEvent } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, tap } from 'rxjs/operators';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import './app.css';
 import './nav.css';
 import './main.css';
 
-const onAnchorClicked = (event) => {
+const anchorSelection = () => tap((event) => {
   const eventTarget = event.currentTarget;
   if (window.location.pathname.replace(/^\//,'') == eventTarget.pathname.replace(/^\//,'') && window.location.hostname == eventTarget.hostname) {
       const elementTarget = document.querySelector(eventTarget.hash);
@@ -19,22 +19,25 @@ const onAnchorClicked = (event) => {
           top: currentYOffset,
           left: 0
         });
-        smoothScrolling();
       }
     }
-};
-const smoothScrolling = () => {
+});
+const smoothScrolling = () => tap(() => {
   const elementTarget = window.location.hash ? document.querySelector(window.location.hash) : null;
   document.querySelector('.main-container').scroll({
     top: elementTarget ? elementTarget.offsetTop : 0,
     left: 0,
     behavior: 'smooth'
   });
-}
+});
 document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((element) => {
-  element.addEventListener('click', (event) => {
-    onAnchorClicked(event);
-  });
+  fromEvent(element, 'click')
+    .pipe(
+      anchorSelection(),
+      smoothScrolling()
+    ).subscribe(() => {
+      console.log('ok');
+    });
 });
 
 fromEvent(document.querySelector('.main-container'), 'scroll')
@@ -44,4 +47,8 @@ fromEvent(document.querySelector('.main-container'), 'scroll')
   });
 
 window.onpopstate = () => smoothScrolling();
-document.addEventListener('DOMContentLoaded', () => smoothScrolling());
+fromEvent(document, 'DOMContentLoaded')
+  .pipe(smoothScrolling())
+  .subscribe(() => {
+    console.log('ok');
+  });
