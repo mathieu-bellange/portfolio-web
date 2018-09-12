@@ -1,51 +1,41 @@
+import { fromEvent, Subject } from 'rxjs';
+import { filter, map, tap } from 'rxjs/operators';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
+import { anchorSelection, smoothScrolling } from './observable.operators';
 import './loading.css';
 import './app.css';
 import './nav.css';
 import './main.css';
 
-const onAnchorClicked = (event) => {
-  const eventTarget = event.currentTarget;
-  if (window.location.pathname.replace(/^\//,'') == eventTarget.pathname.replace(/^\//,'') && window.location.hostname == eventTarget.hostname) {
-      const elementTarget = document.querySelector(eventTarget.hash);
-      if (elementTarget) {
-        event.preventDefault();
-        const currentYOffset = document.querySelector('.main-container').scrollTop;
-        window.location.hash = eventTarget.hash;
-        elementTarget.focus({ preventScroll: true });
-        document.querySelector('.main-container').scroll({
-          top: currentYOffset,
-          left: 0
-        });
-        smoothScrolling();
-      }
-    }
-};
-const smoothScrolling = () => {
-  const elementTarget = window.location.hash ? document.querySelector(window.location.hash) : null;
-  document.querySelector('.main-container').scroll({
-    top: elementTarget ? elementTarget.offsetTop : 0,
-    left: 0,
-    behavior: 'smooth'
-  });
-}
+// smoothScrolling after history change
+const onPopStateSubject = new Subject();
+onPopStateSubject.pipe(smoothScrolling()).subscribe(() => {});
+window.onpopstate = () => onPopStateSubject.next();
+
 document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((element) => {
-  element.addEventListener('click', (event) => {
-    onAnchorClicked(event);
+  fromEvent(element, 'click')
+    .pipe(
+      filter(event => window.location.pathname.replace(/^\//,'') == event.currentTarget.pathname.replace(/^\//,'')
+        && window.location.hostname == event.currentTarget.hostname),
+      filter(event => document.querySelector(event.currentTarget.hash)),
+      tap(event => event.preventDefault()),
+      map(event => event.currentTarget),
+      anchorSelection(),
+      smoothScrolling()
+    ).subscribe(() => {});
+});
+
+fromEvent(document.querySelector('.main-container'), 'scroll')
+  .pipe(filter(() => document.querySelector('body').clientWidth <= 880))
+  .subscribe((e) => {
+    document.querySelector('.profile-overview').className = `profile-overview ${e.target.scrollTop > 0 ? 'hidden' : ''}`;
   });
-});
 
-document.querySelector('.main-container').addEventListener('scroll', (e) => {
-  if (document.querySelector('body').clientWidth <= 880 && e.target.scrollTop > 0) {
-    document.querySelector('.profile-overview').className = 'profile-overview hidden';
-  } else {
-    document.querySelector('.profile-overview').className = 'profile-overview';
-  }
-});
-
-window.onpopstate = () => smoothScrolling();
+fromEvent(document, 'DOMContentLoaded')
+  .pipe(smoothScrolling())
+  .subscribe(() => {});
 window.addEventListener('load', () => {
-  smoothScrolling();
   document.querySelector('.loading-panel').className += ' hidden';
   document.querySelector('.loading-panel').addEventListener('transitionend', () => {
     document.querySelector('.loading-panel').remove();
