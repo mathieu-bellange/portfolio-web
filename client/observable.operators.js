@@ -1,4 +1,4 @@
-import { tap } from 'rxjs/operators';
+import { tap, map } from 'rxjs/operators';
 
 const anchorSelection = () => tap((eventTarget) => {
   // save yOffset before location change
@@ -11,12 +11,15 @@ const anchorSelection = () => tap((eventTarget) => {
     left: 0
   });
 });
-const smoothScrolling = () => tap(() => {
-  document.querySelector('.main-container').scroll({
-    top: window.location.hash ? document.querySelector(window.location.hash).offsetTop : 0,
-    left: 0,
-    behavior: 'smooth'
-  });
-});
+const smoothScrolling = () => (source) => source.pipe(
+  map(() => window.location.hash ? document.querySelector(window.location.hash).offsetTop : 0),
+  tap((yOffset) => {
+    document.querySelector('.main-container').scroll({
+      top: yOffset,
+      left: 0,
+      behavior: 'smooth'
+    });
+  })
+);
 
 export { anchorSelection, smoothScrolling };
