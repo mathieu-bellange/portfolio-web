@@ -1,4 +1,5 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import './loading.css';
 import './app.css';
 import './nav.css';
 import './main.css';
@@ -43,4 +44,10 @@ document.querySelector('.main-container').addEventListener('scroll', (e) => {
 });
 
 window.onpopstate = () => smoothScrolling();
-document.addEventListener('DOMContentLoaded', () => smoothScrolling());
+window.addEventListener('load', () => {
+  smoothScrolling();
+  document.querySelector('.loading-panel').className += ' hidden';
+  document.querySelector('.loading-panel').addEventListener('transitionend', () => {
+    document.querySelector('.loading-panel').remove();
+  }, false)
+});
