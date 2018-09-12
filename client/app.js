@@ -32,12 +32,10 @@ fromEvent(document.querySelector('.main-container'), 'scroll')
     document.querySelector('.profile-overview').className = `profile-overview ${e.target.scrollTop > 0 ? 'hidden' : ''}`;
   });
 
-fromEvent(document, 'DOMContentLoaded')
+fromEvent(document.querySelector('.loading-panel'), 'transitionend')
+  .pipe(filter(event => event.propertyName === 'opacity'))
+  .subscribe(() => document.querySelector('.loading-panel').remove());
+
+fromEvent(window, 'load')
   .pipe(smoothScrolling())
-  .subscribe(() => {});
-window.addEventListener('load', () => {
-  document.querySelector('.loading-panel').className += ' hidden';
-  document.querySelector('.loading-panel').addEventListener('transitionend', () => {
-    document.querySelector('.loading-panel').remove();
-  }, false)
-});
+  .subscribe(() => document.querySelector('.loading-panel').className += ' hidden');
