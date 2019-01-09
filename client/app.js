@@ -3,6 +3,7 @@ import { filter, map, tap } from 'rxjs/operators';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import { anchorSelection, smoothScrolling } from './observable.operators';
+import scrollbarConfiguration from 'scrollbar-js.config';
 import './loading.css';
 import './app.css';
 import './nav.css';
@@ -37,5 +38,8 @@ fromEvent(document.querySelector('.loading-panel'), 'transitionend')
   .subscribe(() => document.querySelector('.loading-panel').remove());
 
 fromEvent(window, 'load')
-  .pipe(smoothScrolling())
+  .pipe(
+    smoothScrolling(),
+    scrollbarConfiguration()
+  )
   .subscribe(() => document.querySelector('.loading-panel').className += ' hidden');

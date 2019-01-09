@@ -1,6 +1,5 @@
 .main-container
   flex-grow: 3
-  overflow-y: scroll
   padding: 2em 15em
   main
     display: flex
