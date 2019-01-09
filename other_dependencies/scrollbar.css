@@ -1,0 +1,1081 @@
+/*
+
+	scrollbar.css
+
+*/
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Base */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.scrollbar,
+.scrollbar .minus,
+.scrollbar .plus,
+.scrollbar .track,
+.scrollbar .thumb,
+.scrollbar .grip {
+	display: inline-block;
+	position: absolute;
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+}
+
+.scrollbar {
+	z-index: 1;
+}
+
+.scrollbar .minus {
+	z-index: 1;
+}
+
+.scrollbar .plus {}
+
+.scrollbar .track {}
+
+.scrollbar .thumb {
+	overflow: hidden;
+}
+
+.scrollbar .grip {}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Base : Vertical */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.vertical {}
+
+.scrollbar.vertical .minus,
+.scrollbar.vertical .plus {
+	left: 0;
+}
+
+.scrollbar.vertical .minus {
+	top: 0;
+}
+
+.scrollbar.vertical .plus {
+	bottom: 0;
+}
+
+.scrollbar.vertical .track {
+	left: 0;
+}
+
+.scrollbar.vertical .thumb {
+	top: 0;
+}
+
+.scrollbar.vertical .grip {
+	left: 0;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Base : Horizontal */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.horizontal {}
+
+.scrollbar.horizontal .minus,
+.scrollbar.horizontal .plus {
+	top: 0;
+}
+
+.scrollbar.horizontal .minus {
+	left: 0;
+}
+
+.scrollbar.horizontal .plus {
+	right: 0;
+}
+
+.scrollbar.horizontal .track {
+	top: 0;
+}
+
+.scrollbar.horizontal .thumb {
+	left: 0;
+}
+
+.scrollbar.horizontal .grip {
+	top: 0;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Base : Unactive */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar .minus.unactive {}
+.scrollbar .plus.unactive {}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Base : Disable */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.disable {}
+
+.scrollbar.disable .thumb {
+	display: none;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Test */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.scrollbar.test {
+	background-color: hotpink;
+	opacity: .75;
+}
+
+.scrollbar.test .minus,
+.scrollbar.test .plus {
+	background-color: green;
+}
+
+.scrollbar.test .track {
+	background-color: blue;
+}
+
+.scrollbar.test .thumb {
+	background-color: red;
+}
+
+.scrollbar.test .grip {
+	background-color: pink;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Test : Vertical */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.test.vertical {
+	width: 20px;
+}
+
+.scrollbar.test.vertical .minus,
+.scrollbar.test.vertical .plus {
+	width: 20px;
+	height: 20px;
+}
+
+.scrollbar.test.vertical .track {
+	top: 20px;
+	width: 20px;
+}
+
+.scrollbar.test.vertical .thumb {
+	top: 4px;
+	left: 4px;
+	width: 12px;
+}
+
+.scrollbar.test.vertical .grip {
+	top: 50%;
+	width: 100%;
+	height: 40px;
+	margin-top: -20px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Test : Horizontal */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.test.horizontal {
+	height: 20px;
+}
+
+.scrollbar.test.horizontal .minus,
+.scrollbar.test.horizontal .plus {
+	width: 20px;
+	height: 20px;
+}
+
+.scrollbar.test.horizontal .track {
+	left: 20px;
+	height: 20px;
+}
+
+.scrollbar.test.horizontal .thumb {
+	top: 4px;
+	left: 4px;
+	height: 12px;
+}
+
+.scrollbar.test.horizontal .grip {
+	left: 50%;
+	width: 40px;
+	height: 100%;
+	margin-left: -20px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Test : Active */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.test:not(.disable) .minus:not(.unactive).active,
+.scrollbar.test:not(.disable) .plus:not(.unactive).active {
+	background-color: yellow;
+}
+
+.scrollbar.test:not(.disable) .track.active {
+	background-color: green;
+}
+
+.scrollbar.test:not(.disable) .thumb.active {
+	background-color: yellow;
+}
+
+.scrollbar.test:not(.disable) .grip.active {
+	background-color: green;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Test : Unactive */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.test .minus.unactive,
+.scrollbar.test .plus.unactive {
+	background-color: black;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Test : Disable */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.test.disable .minus,
+.scrollbar.test.disable .plus,
+.scrollbar.test.disable .track {
+	opacity: .5;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Test : Buttons */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.test .minus:before,
+.scrollbar.test .plus:before {
+	display: table-cell;
+	width: inherit;
+	height: inherit;
+	font-size: .75rem;
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: center;
+	background-color: rgba(255,255,0,.5);
+}
+
+.scrollbar.test.vertical .minus:before {content: 'U';}
+.scrollbar.test.vertical .plus:before {content: 'D';}
+.scrollbar.test.horizontal .minus:before {content: 'L';}
+.scrollbar.test.horizontal .plus:before {content: 'R';}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Flat */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.scrollbar.flat {
+	background-color: rgba(216,216,216,.375);
+}
+
+.scrollbar.flat .thumb {
+	top: 0;
+	left: 0;
+	background-color: rgba(192,192,192,.75);
+}
+
+.scrollbar.flat .grip {
+	display: none;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat : Vertical */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.flat.vertical {
+	width: 14px;
+}
+
+.scrollbar.flat.vertical .minus,
+.scrollbar.flat.vertical .plus {
+	width: 14px;
+	height: 14px;
+}
+
+.scrollbar.flat.vertical .track {
+	top: 14px;
+	width: 14px;
+}
+
+.scrollbar.flat.vertical .thumb {
+	width: 14px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat : Horizontal */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.flat.horizontal {
+	height: 14px;
+}
+
+.scrollbar.flat.horizontal .minus,
+.scrollbar.flat.horizontal .plus {
+	width: 14px;
+	height: 14px;
+}
+
+.scrollbar.flat.horizontal .track {
+	left: 14px;
+	height: 14px;
+}
+
+.scrollbar.flat.horizontal .thumb {
+	height: 14px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat : Active */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.flat:not(.disable) .thumb.active {
+	background-color: rgba(24,160,248,.75);
+}
+
+.scrollbar.flat .minus:not(.unactive).active,
+.scrollbar.flat .plus:not(.unactive).active {
+	background-color: rgb(24,160,248);
+}
+
+.scrollbar.flat .minus:not(.unactive).active:before,
+.scrollbar.flat .plus:not(.unactive).active:before,
+.scrollbar.flat .minus:not(.unactive).active:after,
+.scrollbar.flat .plus:not(.unactive).active:after {
+	background-color: rgb(255,255,255,.875);
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat : Unactive */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.flat .minus.unactive,
+.scrollbar.flat .plus.unactive {
+	background-color: rgba(192,192,192,.75);
+}
+
+.scrollbar.flat .minus.unactive:before,
+.scrollbar.flat .plus.unactive:before,
+.scrollbar.flat .minus.unactive:after,
+.scrollbar.flat .plus.unactive:after {
+	background-color: rgba(255,255,255,.5);
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat : Disable */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.flat.disable .minus,
+.scrollbar.flat.disable .plus,
+.scrollbar.flat.disable .track {
+	opacity: .5;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat : Buttons */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.flat .minus:before,
+.scrollbar.flat .plus:before,
+.scrollbar.flat .minus:after,
+.scrollbar.flat .plus:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	background-color: rgb(64,64,64);
+}
+
+.scrollbar.vertical.flat .minus:after,
+.scrollbar.vertical.flat .plus:after,
+.scrollbar.vertical.flat .minus:before,
+.scrollbar.vertical.flat .plus:before {
+	top: 6px;
+	width: 3px;
+	height: 2px;
+}
+
+.scrollbar.vertical.flat .minus:after,
+.scrollbar.vertical.flat .plus:after {
+	left: 4px;
+}
+.scrollbar.vertical.flat .minus:before,
+.scrollbar.vertical.flat .plus:before {
+	left: 7px;
+}
+
+.scrollbar.vertical.flat .minus:before,
+.scrollbar.vertical.flat .plus:after {
+	transform: skew(0, 45deg) ;
+}
+
+.scrollbar.vertical.flat .minus:after,
+.scrollbar.vertical.flat .plus:before {
+	transform: skew(0, -45deg);
+}
+
+.scrollbar.horizontal.flat .minus:after,
+.scrollbar.horizontal.flat .plus:after,
+.scrollbar.horizontal.flat .minus:before,
+.scrollbar.horizontal.flat .plus:before {
+	left: 6px;
+	width: 2px;
+	height: 3px;
+}
+
+.scrollbar.horizontal.flat .minus:before,
+.scrollbar.horizontal.flat .plus:before {
+	top: 7px;
+}
+
+.scrollbar.horizontal.flat .minus:after,
+.scrollbar.horizontal.flat .plus:after {
+	top: 4px;
+}
+
+.scrollbar.horizontal.flat .minus:before,
+.scrollbar.horizontal.flat .plus:after {
+	transform: skew(45deg, 0);
+}
+
+.scrollbar.horizontal.flat .minus:after,
+.scrollbar.horizontal.flat .plus:before {
+	transform: skew(-45deg, 0);
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Flat Dark */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.scrollbar.flat.dark:not(.disable) .thumb.active {
+	background-color: rgba(248,160,24,.75);
+}
+
+.scrollbar.flat.dark .minus:not(.unactive).active,
+.scrollbar.flat.dark .plus:not(.unactive).active {
+	background-color: rgb(248,160,24);
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Flat Large */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat Large : Vertical */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.flat.large.vertical {
+	width: 20px;
+}
+
+.scrollbar.flat.large.vertical .minus,
+.scrollbar.flat.large.vertical .plus {
+	width: 20px;
+	height: 20px;
+}
+
+.scrollbar.flat.large.vertical .track {
+	top: 20px;
+	width: 20px;
+}
+
+.scrollbar.flat.large.vertical .thumb {
+	width: 20px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat Large : Horizontal */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.flat.large.horizontal {
+	height: 20px;
+}
+
+.scrollbar.flat.large.horizontal .minus,
+.scrollbar.flat.large.horizontal .plus {
+	width: 20px;
+	height: 20px;
+}
+
+.scrollbar.flat.large.horizontal .track {
+	left: 20px;
+	height: 20px;
+}
+
+.scrollbar.flat.large.horizontal .thumb {
+	height: 20px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat Large : Buttons */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.vertical.flat.large .minus:after,
+.scrollbar.vertical.flat.large .plus:after,
+.scrollbar.vertical.flat.large .minus:before,
+.scrollbar.vertical.flat.large .plus:before {
+	top: 8px;
+	width: 5px;
+	height: 4px;
+}
+
+.scrollbar.vertical.flat.large .minus:after,
+.scrollbar.vertical.flat.large .plus:after {
+	left: 5px;
+}
+.scrollbar.vertical.flat.large .minus:before,
+.scrollbar.vertical.flat.large .plus:before {
+	left: 10px;
+}
+
+.scrollbar.horizontal.flat.large .minus:after,
+.scrollbar.horizontal.flat.large .plus:after,
+.scrollbar.horizontal.flat.large .minus:before,
+.scrollbar.horizontal.flat.large .plus:before {
+	left: 8px;
+	width: 4px;
+	height: 5px;
+}
+
+.scrollbar.horizontal.flat.large .minus:before,
+.scrollbar.horizontal.flat.large .plus:before {
+	top: 10px;
+}
+
+.scrollbar.horizontal.flat.large .minus:after,
+.scrollbar.horizontal.flat.large .plus:after {
+	top: 5px;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Flat Slith */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.scrollbar.flat.slith {
+	background-color: transparent;
+	transition: background-color .125s;
+}
+
+.scrollbar.flat.slith:hover {
+	background-color: rgba(216,216,216,.375);
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat Slith : Vertical */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.flat.slith.vertical .thumb {
+	left: initial;
+	right: 0;
+	width: 5px;
+	transition: left .125s, right .125s, width .125s;
+}
+
+.scrollbar.flat.slith.vertical[data-outside-box]:not([data-left-side]) .thumb,
+.scrollbar.flat.slith.vertical[data-left-side]:not([data-outside-box]) .thumb {
+	left: 0;
+	right: initial;
+}
+
+.scrollbar.flat.slith.vertical .thumb.active,
+.scrollbar.flat.slith.vertical:hover .thumb {
+	width: 14px;
+}
+
+.scrollbar.flat.large.slith.vertical .thumb.active,
+.scrollbar.flat.large.slith.vertical:hover .thumb {
+	width: 20px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Flat Slith : Horizontal */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.flat.slith.horizontal .thumb {
+	top: initial;
+	bottom: 0;
+	height: 5px;
+	transition: top .125s, bottom .125s, height .125s;
+}
+
+.scrollbar.flat.slith.horizontal[data-outside-box]:not([data-top-side]) .thumb,
+.scrollbar.flat.slith.horizontal[data-top-side]:not([data-outside-box]) .thumb {
+	top: 0;
+	bottom: initial;
+}
+
+.scrollbar.flat.slith.horizontal .thumb.active,
+.scrollbar.flat.slith.horizontal:hover .thumb {
+	height: 14px;
+}
+
+.scrollbar.flat.large.slith.horizontal .thumb.active,
+.scrollbar.flat.large.slith.horizontal:hover .thumb {
+	height: 20px;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Slim */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.scrollbar.slim .minus:before,
+.scrollbar.slim .plus:before,
+.scrollbar.slim .thumb {
+	background-color: rgba(0,0,0,.375);
+	border-radius: 4px;
+}
+
+.scrollbar.slim .minus:hover:before,
+.scrollbar.slim .plus:hover:before,
+.scrollbar.slim .thumb:hover {
+	background-color: rgba(0,0,0,.5);
+}
+
+.scrollbar.slim .grip {
+	display: none;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Slim : Vertical */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.slim.vertical {
+	width: 12px;
+}
+
+.scrollbar.slim.vertical .minus,
+.scrollbar.slim.vertical .plus {
+	width: 8px;
+	height: 16px;
+}
+
+.scrollbar.slim.vertical .track {
+	top: 16px;
+	width: 12px;
+}
+
+.scrollbar.slim.vertical .thumb {
+	top: 4px;
+	width: 8px;
+}
+
+.scrollbar.slim.vertical .thumb,
+.scrollbar.slim.vertical[data-left-side][data-outside-box] .minus,
+.scrollbar.slim.vertical[data-left-side][data-outside-box] .plus,
+.scrollbar.slim.vertical[data-left-side][data-outside-box] .thumb {
+	left: 0;
+}
+
+.scrollbar.slim.vertical[data-left-side] .minus,
+.scrollbar.slim.vertical[data-left-side] .plus,
+.scrollbar.slim.vertical[data-left-side] .thumb,
+.scrollbar.slim.vertical[data-outside-box] .minus,
+.scrollbar.slim.vertical[data-outside-box] .plus,
+.scrollbar.slim.vertical[data-outside-box] .thumb {
+	left: 4px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Slim : Horizontal */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.slim.horizontal {
+	height: 12px;
+}
+
+.scrollbar.slim.horizontal .minus,
+.scrollbar.slim.horizontal .plus {
+	width: 16px;
+	height: 8px;
+}
+
+.scrollbar.slim.horizontal .track {
+	left: 16px;
+	height: 12px;
+}
+
+.scrollbar.slim.horizontal .thumb {
+	left: 4px;
+	height: 8px;
+}
+
+.scrollbar.slim.horizontal .thumb,
+.scrollbar.slim.horizontal[data-top-side][data-outside-box] .minus,
+.scrollbar.slim.horizontal[data-top-side][data-outside-box] .plus,
+.scrollbar.slim.horizontal[data-top-side][data-outside-box] .thumb {
+	top: 0;
+}
+
+.scrollbar.slim.horizontal[data-top-side] .minus,
+.scrollbar.slim.horizontal[data-top-side] .plus,
+.scrollbar.slim.horizontal[data-top-side] .thumb,
+.scrollbar.slim.horizontal[data-outside-box] .minus,
+.scrollbar.slim.horizontal[data-outside-box] .plus,
+.scrollbar.slim.horizontal[data-outside-box] .thumb {
+	top: 4px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Slim : Unactive */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.slim .minus.unactive,
+.scrollbar.slim .plus.unactive {
+	opacity: .25;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Slim : Disable */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.slim.disable .minus,
+.scrollbar.slim.disable .plus,
+.scrollbar.slim.disable .track {
+	opacity: .25;
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Slim : Buttons */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.slim .minus:before,
+.scrollbar.slim .plus:before {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 8px;
+	height: 8px;
+}
+
+.scrollbar.slim.vertical .minus:before,
+.scrollbar.slim.vertical .plus:before {top: 4px;}
+.scrollbar.slim.horizontal .minus:before,
+.scrollbar.slim.horizontal .plus:before {left: 4px;}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Slim Dark */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.scrollbar.slim.dark .minus:before,
+.scrollbar.slim.dark .plus:before,
+.scrollbar.slim.dark .thumb {
+	background-color: rgba(255,255,255,.375);
+}
+
+.scrollbar.slim.dark .minus:hover:before,
+.scrollbar.slim.dark .plus:hover:before,
+.scrollbar.slim.dark .thumb:hover {
+	background-color: rgba(255,255,255,.5);
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Aero */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.scrollbar.aero {
+	border: 1px solid rgb(192,192,192);
+	background-color: rgb(236,236,236);
+}
+
+.scrollbar.aero .minus,
+.scrollbar.aero .plus {
+	border: 1px solid transparent;
+	border-radius: 2px;
+}
+
+.scrollbar.aero:not(.disable):hover .minus:not(.unactive),
+.scrollbar.aero:not(.disable):hover .plus:not(.unactive) {
+	border-color: rgb(148,148,148);
+}
+
+.scrollbar.aero:not(.disable) .minus:hover:not(.unactive),
+.scrollbar.aero:not(.disable) .plus:hover:not(.unactive) {
+	border-color: rgb(64,128,176);
+}
+
+.scrollbar.aero:not(.disable) .minus.active:not(.unactive),
+.scrollbar.aero:not(.disable) .plus.active:not(.unactive) {
+	border-color: rgb(24,88,136);
+}
+
+.scrollbar.aero .track {}
+
+.scrollbar.aero .thumb {
+	border: 1px solid rgb(148,148,148);
+	border-radius: 2px;
+}
+
+.scrollbar.aero .thumb:hover {
+	border-color: rgb(64,128,176);
+}
+
+.scrollbar.aero .thumb.active {
+	border-color: rgb(24,88,136);
+}
+
+.scrollbar.aero .thumb .grip,
+.scrollbar.aero .thumb .grip:before,
+.scrollbar.aero .thumb .grip:after {
+	background-color: #ccc;
+	box-shadow: 1px 1px 1px #666 inset, 0 0 1px #fff;
+}
+.scrollbar.aero .thumb:hover .grip,
+.scrollbar.aero .thumb:hover .grip:before,
+.scrollbar.aero .thumb:hover .grip:after {
+	background-color: rgb(112,176,224);
+	box-shadow: 1px 1px 1px rgb(64,128,176) inset, 0 0 2px rgb(144,208,244);
+}
+
+.scrollbar.aero .thumb.active .grip,
+.scrollbar.aero .thumb.active .grip:before,
+.scrollbar.aero .thumb.active .grip:after {
+	background-color: rgb(24,88,136);
+	box-shadow: 1px 1px 1px rgb(64,128,176) inset, 0 0 1px rgb(144,208,244);
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Aero : Vertical */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.aero.vertical {
+	width: 16px;
+	border-left-width: 0;
+	box-shadow: 2px 0 2px gainsboro inset;
+}
+
+.scrollbar.aero.vertical[data-left-side] {
+	border-left-width: 1px;
+	border-right-width: 0;
+	box-shadow: -2px 0 2px gainsboro inset;
+}
+
+.scrollbar.aero.vertical[data-outside-box] {
+	border-bottom-width: 1px;
+}
+
+.scrollbar.aero.vertical .minus,
+.scrollbar.aero.vertical .plus {
+	width: 13px;
+	height: 14px;
+}
+
+.scrollbar.aero.vertical .minus {margin-top: 1px;}
+.scrollbar.aero.vertical .plus {margin-bottom: 1px;}
+
+.scrollbar.aero.vertical:not(.disable):hover .minus:not(.unactive),
+.scrollbar.aero.vertical:not(.disable):hover .plus:not(.unactive) {
+	background: linear-gradient(to right, #f0f0f0 0%, #eee 49%, #ddd 50%, #aaa 100%);
+	box-shadow: -1px 0 1px #ddd inset;
+}
+
+.scrollbar.aero.vertical:not(.disable) .minus:hover:not(.unactive),
+.scrollbar.aero.vertical:not(.disable) .plus:hover:not(.unactive) {
+	background: linear-gradient(to right, rgb(224,248,248) 0%, rgb(216,240,240) 49%, rgb(168,224,248) 50%, rgb(160,200,224) 100%);
+}
+
+.scrollbar.aero.vertical:not(.disable) .minus.active:not(.unactive),
+.scrollbar.aero.vertical:not(.disable) .plus.active:not(.unactive) {
+	background: linear-gradient(to right, rgb(208,232,248) 0%, rgb(184,224,248) 49%, rgb(112,200,240) 50%, rgb(104,184,224) 100%);
+}
+
+.scrollbar.aero.vertical .track {
+	top: 16px;
+	width: 16px;
+}
+
+.scrollbar.aero.vertical .thumb {
+	top: 1px;
+	left: 0;
+	width: 13px;
+	background: linear-gradient(to right, #f0f0f0 0%, #eee 49%, #ddd 50%, #aaa 100%);
+	box-shadow: -1px 0 1px #ddd inset;
+}
+
+.scrollbar.aero.vertical .thumb:hover {
+	background: linear-gradient(to right, rgb(224,248,248) 0%, rgb(216,240,240) 49%, rgb(168,224,248) 50%, rgb(160,200,224) 100%);
+}
+
+.scrollbar.aero.vertical .thumb.active {
+	background: linear-gradient(to right, rgb(208,232,248) 0%, rgb(184,224,248) 49%, rgb(112,200,240) 50%, rgb(104,184,224) 100%);
+}
+
+.scrollbar.aero.vertical .grip,
+.scrollbar.aero.vertical .grip:before,
+.scrollbar.aero.vertical .grip:after {
+	top: 50%;
+	width: 7px;
+	height: 2px;
+}
+
+.scrollbar.aero.vertical .grip:before,
+.scrollbar.aero.vertical .grip:after {
+	content: '';
+	position: absolute;
+	display: inline-block;
+}
+
+.scrollbar.aero.vertical .grip {left: 3px; margin-top: -1px;}
+.scrollbar.aero.vertical .grip:before {margin-top: -4px;}
+.scrollbar.aero.vertical .grip:after {margin-top: 2px;}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Aero : Horizontal */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.aero.horizontal {
+	height: 16px;
+	border-top-width: 0;
+	box-shadow: 0 2px 2px gainsboro inset;
+}
+
+.scrollbar.aero.horizontal[data-top-side] {
+	border-top-width: 1px;
+	border-bottom-width: 0;
+	box-shadow: 0 -2px 2px gainsboro inset;
+}
+
+.scrollbar.aero.horizontal[data-outside-box] {
+	border-right-width: 1px;
+}
+
+.scrollbar.aero.horizontal .minus,
+.scrollbar.aero.horizontal .plus {
+	width: 14px;
+	height: 13px;
+}
+
+.scrollbar.aero.horizontal .minus {margin-left: 1px;}
+.scrollbar.aero.horizontal .plus {margin-right: 1px;}
+
+.scrollbar.aero.horizontal:not(.disable):hover .minus:not(.unactive),
+.scrollbar.aero.horizontal:not(.disable):hover .plus:not(.unactive) {
+	background: linear-gradient(to bottom, #f0f0f0 0%, #eee 49%, #ddd 50%, #aaa 100%);
+	box-shadow: -1px -1px 1px #ddd inset;
+}
+
+.scrollbar.aero.horizontal:not(.disable) .minus:hover:not(.unactive),
+.scrollbar.aero.horizontal:not(.disable) .plus:hover:not(.unactive) {
+	background: linear-gradient(to bottom, rgb(224,248,248) 0%, rgb(216,240,240) 49%, rgb(168,224,248) 50%, rgb(160,200,224) 100%);
+}
+
+.scrollbar.aero.horizontal:not(.disable) .minus.active:not(.unactive),
+.scrollbar.aero.horizontal:not(.disable) .plus.active:not(.unactive) {
+	background: linear-gradient(to bottom, rgb(208,232,248) 0%, rgb(184,224,248) 49%, rgb(112,200,240) 50%, rgb(104,184,224) 100%);
+}
+
+.scrollbar.aero.horizontal .track {
+	left: 16px;
+	height: 16px;
+}
+
+.scrollbar.aero.horizontal .thumb {
+	top: 0;
+	left: 1px;
+	height: 13px;
+	background: linear-gradient(to bottom, #f0f0f0 0%, #eee 49%, #ddd 50%, #aaa 100%);
+	box-shadow: -1px -1px 1px #ddd inset;
+}
+
+.scrollbar.aero.horizontal .thumb:hover {
+	background: linear-gradient(to bottom, rgb(224,248,248) 0%, rgb(216,240,240) 49%, rgb(168,224,248) 50%, rgb(160,200,224) 100%);
+}
+
+.scrollbar.aero.horizontal .thumb.active {
+	background: linear-gradient(to bottom, rgb(208,232,248) 0%, rgb(184,224,248) 49%, rgb(112,200,240) 50%, rgb(104,184,224) 100%);
+}
+
+.scrollbar.aero.horizontal .grip,
+.scrollbar.aero.horizontal .grip:before,
+.scrollbar.aero.horizontal .grip:after {
+	left: 50%;
+	width: 2px;
+	height: 7px;
+}
+
+.scrollbar.aero.horizontal .grip:before,
+.scrollbar.aero.horizontal .grip:after {
+	content: '';
+	position: absolute;
+	display: inline-block;
+}
+
+.scrollbar.aero.horizontal .grip {top: 3px; margin-left: -1px;}
+.scrollbar.aero.horizontal .grip:before {margin-left: -4px;}
+.scrollbar.aero.horizontal .grip:after {margin-left: 2px;}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* & Aero : Buttons */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.scrollbar.aero .minus:before,
+.scrollbar.aero .plus:before {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	width: 4px;
+	height: 4px;
+	border: 4px solid transparent;
+	box-sizing: border-box;
+}
+
+.scrollbar.aero.vertical .minus:before {top: 1px; left: 3px;}
+.scrollbar.aero.vertical .plus:before {top: 6px; left: 3px;}
+.scrollbar.aero.horizontal .minus:before {top: 3px; left: 0;}
+.scrollbar.aero.horizontal .plus:before {top: 3px; left: 5px;}
+
+.scrollbar.aero.vertical .minus:before {border-bottom-color: #555;}
+.scrollbar.aero.vertical .plus:before {border-top-color: #555;}
+.scrollbar.aero.horizontal .minus:before {border-right-color: #555;}
+.scrollbar.aero.horizontal .plus:before {border-left-color: #555;}
+
+.scrollbar.aero.vertical:hover .minus:before {border-bottom-color: #777;}
+.scrollbar.aero.vertical:hover .plus:before {border-top-color: #777;}
+.scrollbar.aero.horizontal:hover .minus:before {border-right-color: #777;}
+.scrollbar.aero.horizontal:hover .plus:before {border-left-color: #777;}
+
+.scrollbar.aero.vertical .minus:hover:before {border-bottom-color: rgb(64,128,176);}
+.scrollbar.aero.vertical .plus:hover:before {border-top-color: rgb(64,128,176);}
+.scrollbar.aero.horizontal .minus:hover:before {border-right-color: rgb(64,128,176);}
+.scrollbar.aero.horizontal .plus:hover:before {border-left-color: rgb(64,128,176);}
+
+.scrollbar.aero.vertical .minus.active:before {border-bottom-color: rgb(24,88,136);}
+.scrollbar.aero.vertical .plus.active:before {border-top-color: rgb(24,88,136);}
+.scrollbar.aero.horizontal .minus.active:before {border-right-color: rgb(24,88,136);}
+.scrollbar.aero.horizontal .plus.active:before {border-left-color: rgb(24,88,136);}
+
+.scrollbar.aero.vertical .minus.unactive:before {border-bottom-color: #bbb;}
+.scrollbar.aero.vertical .plus.unactive:before {border-top-color: #bbb;}
+.scrollbar.aero.horizontal .minus.unactive:before {border-right-color: #bbb;}
+.scrollbar.aero.horizontal .plus.unactive:before {border-left-color: #bbb;}
+

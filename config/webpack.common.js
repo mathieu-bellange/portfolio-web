@@ -24,7 +24,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.css'],
-    modules: [helpers.root('client'), helpers.root('public'), helpers.root('node_modules')]
+    modules: [helpers.root('client'), helpers.root('public'), helpers.root('node_modules'), helpers.root('other_dependencies')]
   },
 
   module: {
@@ -39,7 +39,7 @@ module.exports = {
 
       {
         test: /\.css$/,
-        exclude: [/@fortawesome/],
+        exclude: [/@fortawesome/, /scrollbar/],
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
@@ -49,7 +49,7 @@ module.exports = {
 
       {
         test: /\.css$/,
-        include: [/@fortawesome/],
+        include: [/@fortawesome/, /scrollbar/],
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
