@@ -3,7 +3,7 @@ import { filter, map, tap } from 'rxjs/operators';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import { anchorSelection, smoothScrolling } from './observable.operators';
-import scrollbarConfiguration from 'scrollbar-js.config';
+import { scrollbarConfiguration, refreshScrollbar } from 'scrollbar-js.config';
 import './loading.css';
 import './app.css';
 import './nav.css';
@@ -11,7 +11,10 @@ import './main.css';
 
 // smoothScrolling after history change
 const onPopStateSubject = new Subject();
-onPopStateSubject.pipe(smoothScrolling()).subscribe(() => {});
+onPopStateSubject.pipe(
+  smoothScrolling(),
+  refreshScrollbar()
+).subscribe(() => {});
 window.onpopstate = () => onPopStateSubject.next();
 
 document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((element) => {
@@ -23,7 +26,8 @@ document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((element) => {
       tap(event => event.preventDefault()),
       map(event => event.currentTarget),
       anchorSelection(),
-      smoothScrolling()
+      smoothScrolling(),
+      refreshScrollbar()
     ).subscribe(() => {});
 });
 
@@ -39,7 +43,8 @@ fromEvent(document.querySelector('.loading-panel'), 'transitionend')
 
 fromEvent(window, 'load')
   .pipe(
+    scrollbarConfiguration(),
     smoothScrolling(),
-    scrollbarConfiguration()
+    refreshScrollbar()
   )
   .subscribe(() => document.querySelector('.loading-panel').className += ' hidden');
