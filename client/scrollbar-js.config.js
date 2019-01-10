@@ -17,7 +17,7 @@ import 'scrollbar.css';
 // operators for scrollbar configuration
 const scrollbarConfiguration = () => (source) => source.pipe(
   // 3. Start module
-  tap(() => Scrollbar.start(true, null, true)),
+  tap(() => Scrollbar.start(false, null, false)),
   // 4. Create scrollbars
   tap(() => document.querySelectorAll("[data-scrollbar]").forEach(element => {
     // A. Set run options
@@ -27,7 +27,7 @@ const scrollbarConfiguration = () => (source) => source.pipe(
 			// row_height : 54
 		};
 		// B. Create elements
-		Scrollbar.create(element, options, false);
+		Scrollbar.create(element, options, true);
   }))
 );
 
