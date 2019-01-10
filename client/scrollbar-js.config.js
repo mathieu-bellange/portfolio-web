@@ -23,11 +23,5 @@ const scrollbarConfiguration = () => (source) => source.pipe(
   // 4. Create scrollbars
   tap(() => Scrollbar.initialize(document.querySelector('.main-container'), true))
 );
-const refreshScrollbar = () => tap(() => {
-  Scrollbar.refresh(document.querySelector('.main-container'))
-});
 
-export {
-  scrollbarConfiguration,
-  refreshScrollbar
-};
+export default scrollbarConfiguration;

@@ -1,9 +1,10 @@
 import { fromEvent, Subject } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
+import Scrollbar from 'scrollbar.umd';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import { anchorSelection, smoothScrolling } from './observable.operators';
-import { scrollbarConfiguration, refreshScrollbar } from 'scrollbar-js.config';
+import scrollbarConfiguration from 'scrollbar-js.config';
 import './loading.css';
 import './app.css';
 import './nav.css';
@@ -12,8 +13,7 @@ import './main.css';
 // smoothScrolling after history change
 const onPopStateSubject = new Subject();
 onPopStateSubject.pipe(
-  smoothScrolling(),
-  refreshScrollbar()
+  smoothScrolling()
 ).subscribe(() => {});
 window.onpopstate = () => onPopStateSubject.next();
 
@@ -26,8 +26,7 @@ document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((element) => {
       tap(event => event.preventDefault()),
       map(event => event.currentTarget),
       anchorSelection(),
-      smoothScrolling(),
-      refreshScrollbar()
+      smoothScrolling()
     ).subscribe(() => {});
 });
 
@@ -37,6 +36,11 @@ fromEvent(document.querySelector('.main-container'), 'scroll')
     document.querySelector('.profile-overview').className = `profile-overview ${e.target.scrollTop > 0 ? 'hidden' : ''}`;
   });
 
+fromEvent(document.querySelector('.main-container'), 'scroll')
+  .subscribe(() => {
+    Scrollbar.refresh(document.querySelector('.main-container'))
+  });
+
 fromEvent(document.querySelector('.loading-panel'), 'transitionend')
   .pipe(filter(event => event.propertyName === 'opacity'))
   .subscribe(() => document.querySelector('.loading-panel').remove());
@@ -44,7 +48,6 @@ fromEvent(document.querySelector('.loading-panel'), 'transitionend')
 fromEvent(window, 'load')
   .pipe(
     scrollbarConfiguration(),
-    smoothScrolling(),
-    refreshScrollbar()
+    smoothScrolling()
   )
   .subscribe(() => document.querySelector('.loading-panel').className += ' hidden');

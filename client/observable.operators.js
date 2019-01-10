@@ -17,7 +17,7 @@ const smoothScrolling = () => (source) => source.pipe(
     document.querySelector('.main-container').scroll({
       top: yOffset,
       left: 0,
-      // behavior: 'smooth'
+      behavior: 'smooth'
     });
   })
 );
