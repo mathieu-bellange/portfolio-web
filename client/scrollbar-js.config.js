@@ -1,7 +1,7 @@
 import {
   tap
 } from 'rxjs/operators';
-import Scrollbar from 'scrollbar.umd';
+import Scrollbar from 'scrollbar';
 import 'scrollbar.css';
 
 // 1. Define custom theme
