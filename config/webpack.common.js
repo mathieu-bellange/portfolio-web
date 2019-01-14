@@ -24,7 +24,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.css'],
-    modules: [helpers.root('client'), helpers.root('public'), helpers.root('node_modules'), helpers.root('other_dependencies')]
+    modules: [helpers.root('client'), helpers.root('public'), helpers.root('node_modules')]
   },
 
   module: {

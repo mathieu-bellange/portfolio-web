@@ -1,6 +1,6 @@
 import { fromEvent, Subject } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
-import Scrollbar from 'scrollbar';
+import Scrollbar from 'scrollbar-js';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import { anchorSelection, smoothScrolling } from './observable.operators';

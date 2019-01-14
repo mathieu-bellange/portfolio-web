@@ -1,8 +1,8 @@
 import {
   tap
 } from 'rxjs/operators';
-import Scrollbar from 'scrollbar';
-import 'scrollbar.css';
+import Scrollbar from 'scrollbar-js';
+import 'scrollbar-js/src/scrollbar.css';
 
 // 1. Define custom theme
 // Scrollbar.themes.custom = {

@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.3.1",
-    "rxjs": "^6.3.2"
+    "rxjs": "^6.3.2",
+    "scrollbar-js": "git+ssh://git@github.com/zedafty/scrollbar.git#plumbing/npm-package"
   }
 }
