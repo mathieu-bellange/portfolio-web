@@ -1,6 +1,5 @@
 import { fromEvent, Subject } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
-import Scrollbar from 'scrollbar-js';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import { anchorSelection, smoothScrolling } from './observable.operators';
@@ -34,11 +33,6 @@ fromEvent(document.querySelector('.main-container'), 'scroll')
   .pipe(filter(() => document.querySelector('body').clientWidth <= 880))
   .subscribe((e) => {
     document.querySelector('.profile-overview').className = `profile-overview ${e.target.scrollTop > 0 ? 'hidden' : ''}`;
-  });
-
-fromEvent(document.querySelector('.main-container'), 'scroll')
-  .subscribe(() => {
-    Scrollbar.refresh(document.querySelector('.main-container'))
   });
 
 fromEvent(document.querySelector('.loading-panel'), 'transitionend')

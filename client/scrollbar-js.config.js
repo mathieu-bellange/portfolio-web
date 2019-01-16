@@ -17,11 +17,9 @@ import 'scrollbar-js/src/scrollbar.css';
 // Scrollbar.conf.row_height = 54;
 
 // operators for scrollbar configuration
-const scrollbarConfiguration = () => (source) => source.pipe(
+const scrollbarConfiguration = () =>
   // 3. Start module
-  tap(() => Scrollbar.start(true, null, false)),
-  // 4. Create scrollbars
-  tap(() => Scrollbar.initialize(document.querySelector('.main-container'), true))
+  tap(() => Scrollbar.start(true, { 'window_bar': true, 'show_horizontal': false }, true)
 );
 
 export default scrollbarConfiguration;
