@@ -92,7 +92,7 @@ main {
   flex: 2;
   display: flex;
   flex-direction: column;
-  padding-left: 5em;
+  padding: 0 5em;
   justify-content: center;
   color: #01626B;
 }
