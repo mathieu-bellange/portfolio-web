@@ -11,7 +11,8 @@
     "start": "npm run webpack:dev",
     "start:prod": "npm run build:prod && npm run server:prod",
     "webpack:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base client/",
-    "server:prod": "http-server dist --cors -o -c-1 -p 3000"
+    "server:prod": "http-server dist --cors -o -c-1 -p 3000",
+		"server:cv": "http-server cv --cors -o -c-1 -p 3002"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
