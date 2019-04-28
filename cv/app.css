@@ -19,41 +19,146 @@ ul {
 body {
   display: flex;
   flex-direction: row;
+  overflow: auto;
   height: 100vh;
-  overflow: hidden;
+  font-size: 0.75em;
+  justify-content: center;
 }
 
 header {
   flex: 1;
-  background-color: blue;
+  background-color: #109BA8;
   color: white;
+  display: flex;
+  flex-direction: column;
 }
 
-header > div > i {
-  margin: 0 2em;
+header > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2em;
+}
+
+header > div .title {
+  margin: 0.5em 2em;
+  display: flex;
+  align-items: center;
+}
+
+header > div .title i {
+  margin-right: 0.75em;
+  font-size: 2em;
 }
 
 header > div > p, header > div li {
-  margin: 0 1em;
+  margin: 0.5em 0;
+}
+header ul li div {
+  display: inline-block;
+  width: 30px;
+  margin-right: 0.5em;
+  text-align: center;
 }
 
-header div li i {
-  margin-right: 1em;
+header ul li i {
+  font-size: 1.5em;
+}
+
+header .whoiam {
+  text-align: center;
+  margin: 4em 1em;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  padding: 0;
 }
 
 header .whoiam .name {
-  text-align: center;
   border-bottom: 1px solid white;
-  margin: 0 1em;
-  text-transform: uppercase;
+  font-weight: bold;
 }
 
-header .whoiam .job {
-  text-align: center;
-  margin: 0 1em;
-  text-transform: uppercase;
+header .profile, header .contact, header .skill {
+  margin-bottom: 3em;
+}
+
+header .contact ul li span {
+  font-size: 0.85em;
 }
 
 main {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5em;
+  justify-content: center;
+  color: #01626B;
+}
+
+main > div {
+  margin-bottom: 2em;
+}
+
+main .cv-title {
+  margin-bottom: 1.25em;
+}
+
+main .cv-title i {
+  font-size: 2.25em;
+  margin-right: 1em;
+}
+
+main .cv-card {
+  margin-bottom: 1.5em;
+}
+
+main .cv-card .cv-date {
+  margin-bottom: 0.5em
+}
+
+main .cv-card .cv-date i {
+  margin-right: 1em;
+}
+
+main .cv-card .cv-info {
+  border-left: 1px solid #000;
+  margin-left: calc(0.5em - 0.5px);
+  padding-left: calc(0.5em + 0.5px + 1em);
+}
+
+main .cv-card .cv-info .cv-society, main .cv-card .cv-info .cv-school{
+  margin-bottom: 0.3em;
+  font-size: 1.3em;
+}
+
+main .cv-card .cv-info .cv-occupation, main .cv-card .cv-info .cv-degree {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+}
+
+main .cv-skills {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 2;
+  padding-left: calc(1em + 1px + 1em);
+}
+
+main .cv-skills > div {
+  flex: 1 0 40%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em
+}
+
+main .cv-skills i {
+  font-size: 2em;
+}
+
+main .cv-skills img {
+  max-width: 2em;
+  margin-right: 1.8em;
+}
+
+main .cv-skills i {
+  margin-right: 1em;
 }
