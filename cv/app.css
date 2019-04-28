@@ -20,8 +20,6 @@ body {
   display: flex;
   flex-direction: row;
   overflow: auto;
-  height: 100vh;
-  font-size: 0.75em;
   justify-content: center;
 }
 
@@ -38,6 +36,10 @@ header > div {
   flex-direction: column;
   justify-content: center;
   padding: 0 2em;
+}
+
+header > div:last-child {
+  margin-bottom: 4em;
 }
 
 header > div .title {
@@ -161,4 +163,11 @@ main .cv-skills img {
 
 main .cv-skills i {
   margin-right: 1em;
+}
+
+@media print {
+  body {
+    height: 100vh;
+    font-size: 0.75em;
+  }
 }
